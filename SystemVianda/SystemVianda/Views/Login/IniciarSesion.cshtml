@@ -1,0 +1,160 @@
+﻿
+@{
+    ViewBag.Title = "IniciarSesion";
+    Layout = null;
+}
+
+
+<link href="~/Content/toastr/toastr.min.css" rel="stylesheet" />
+
+<style>
+    #toast-container > div {
+        opacity: 1;
+    }
+
+    #loginshadow {
+        /*Sombras Fondo*/
+        -webkit-box-shadow: 10px -10px 5px 0px rgba(0,0,0,0.75);
+        -moz-box-shadow: 10px -10px 5px 0px rgba(0,0,0,0.75);
+        box-shadow: 10px -10px 5px 0px rgba(0,0,0,0.75);
+        /*Letras 3D*/
+        transform: rotate(0deg) scale(1.018) skew(2deg) translate(0px);
+        -webkit-transform: rotate(0deg) scale(1.018) skew(2deg) translate(0px);
+        -moz-transform: rotate(0deg) scale(1.018) skew(2deg) translate(0px);
+        -o-transform: rotate(0deg) scale(1.018) skew(2deg) translate(0px);
+        -ms-transform: rotate(0deg) scale(1.018) skew(2deg) translate(0px);
+        text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 2px 1px #EEEEEE, 3px 2px 1px #CCCCCC, 2px 3px 1px #EEEEEE, 4px 3px 1px #CCCCCC, 3px 4px 1px #EEEEEE, 5px 4px 1px #CCCCCC, 4px 5px 1px #EEEEEE, 6px 5px 1px #CCCCCC, 5px 6px 1px #EEEEEE, 7px 6px 1px #CCCCCC, 2px 2px 20px rgba(206,89,55,0);
+        /*Letras De Otro Estilo*/
+        font-family: "Comic Sans MS", cursive, sans-serif;
+        font-size: 13px;
+        letter-spacing: 0.2px;
+        word-spacing: -5px;
+        color: #000000;
+        font-weight: 700;
+        text-decoration: none solid rgb(68, 68, 68);
+        font-style: normal;
+        font-variant: normal;
+        text-transform: uppercase;
+    }
+</style>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+</head>
+<body class="" style="background-color:cornflowerblue">
+
+
+    <div class="container body-content">
+        <div class="container glyphicon-log-in">
+            <div class="row affix">
+                <section id="loginForm">
+                    <div class="col-sm-4"></div>
+                    <div class="col-lg-3" id="loginshadow" style="background-color:whitesmoke; padding-bottom:20px;border-radius:20px;">
+
+                        <center>
+
+
+
+                            <br />
+
+                            <h3 class="modal-title w-100 white-text font-weight-bold" id="myModalLabel">
+                                <strong>Inicio</strong> <a class="green-text font-weight-bold"><strong>Sesión</strong></a>
+                            </h3>
+                            <br />
+
+                            <img class="icon-next" src="~/IMG/LAVIANDA_LOGO_NEGRO.png" width="200" alt="Alternate Tex" />
+                        </center>
+                        <br />
+                        <form action="@Url.Action("IniciarSesion","Login")" method="post" id="frmValidar" name="frmValidar">
+
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <img class="" src="~/IMG/User.png" width="25" />
+                                    </span>
+                                    <input type="text" class="form-control input-lg " name="TexUser" placeholder="Nombre de Usuario" autocomplete="off" required autofocus />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <img class="" src="~/IMG/2-keys-256x256-png-1.png" width="25" />
+                                    </span>
+                                    <input type="password" class="form-control input-lg " name="TexPass" id="TexPass" placeholder="Contraseña" required />
+
+                                </div>
+                                <label>
+                                    <input id="show_password" type="checkbox" /> Mostrar contraseña
+                                </label>
+                            </div>
+
+                            <button class="btn btn-lg btn-primary btn-block text-uppercase glyphicon glyphicon-log-out" type="submit">
+                                Entrar
+                            </button>
+                            <div class="modal-footer">
+                                <a href="#">VIANDA</a>
+
+                            </div>
+                        </form>
+
+                    </div>
+
+                </section>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+    <script src="~/Scripts/jquery-1.9.1.js"></script>
+    <script src="~/Content/toastr/toastr.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+</body>
+</html>
+
+
+<script>
+
+    // Cuando el checkbox cambie de estado.
+    $('#show_password').on('change', function (event) {
+        // Si el checkbox esta "checkeado"
+        if ($('#show_password').is(':checked')) {
+            // Convertimos el input de contraseña a texto.
+            $('#TexPass').get(0).type = 'text';
+            // En caso contrario..
+        } else {
+            // Lo convertimos a contraseña.
+            $('#TexPass').get(0).type = 'password';
+        }
+    });
+
+
+
+</script>
+
+
+
+@if (ViewBag.Bandera == true)
+{
+
+    <script type="text/javascript">
+    $(document).ready(function () {
+        //alert('');
+
+
+        toastr.error('@ViewBag.Error');
+
+    });
+    </script>
+}

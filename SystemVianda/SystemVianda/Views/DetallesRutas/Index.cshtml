@@ -1,0 +1,66 @@
+﻿@model IEnumerable<SystemVianda.Models.TblDetallesRuta>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="container-fluid ">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="row">
+                <div class="col-lg-push-12">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading"><h4>Detalles De Rutas</h4></div>
+                        <div class="panel-body">
+                            <br />
+                            <div class="col-lg-push-12">
+                                <div class="form-group">
+                                    <p>
+                                        @Html.ActionLink("Nuevo Detalle De Ruta", "Create", null, htmlAttributes: new { @class = "btn btn-primary " })
+                                    </p>
+                                    <table class="table table-bordered text-center" id="dtBasicExample">
+                                        <thead>
+                                            <tr>
+                                                <th>
+                                                    @*@Html.DisplayNameFor(model => model.Clientes.Nombre)*@
+                                                    Ruta Del Cliente
+                                                </th>
+                                                <th>
+                                                    @*@Html.DisplayNameFor(model => model.Rutas.Nombre)*@
+                                                    Nombre De Ruta
+                                                </th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tfoot>
+                                            @foreach (var item in Model)
+                                            {
+                                                <tr>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.Clientes.Nombre)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.Rutas.Nombre)
+                                                    </td>
+                                                    <td>
+                                                        <div class="bottom">
+                                                            @Html.ActionLink(" ", "Edit", new { id = item.IdDetallesRuta }, new { @class = "btnc btn-sm btn-primary glyphicon glyphicon-edit", Title = "Editar" })
+                                                            @Html.ActionLink(" ", "Details", new { id = item.IdDetallesRuta }, new { @class = "btnc btn-sm btn-info glyphicon glyphicon-eye-open", Title = "Detalles" })
+                                                            @Html.ActionLink(" ", "Delete", new { id = item.IdDetallesRuta }, new { @class = "btnc btn-sm btn-danger glyphicon glyphicon-trash", Title = "Eliminar" })
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            }
+                                        </tfoot>
+
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

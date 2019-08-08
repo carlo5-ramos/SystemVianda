@@ -3,9 +3,9 @@
 @{
 
 
-    if (Session["IdUsuario"] == null || Convert.ToString(Session["Rol"]) != "Administrador")
+    @*if (Session["IdUsuario"] == null || Convert.ToString(Session["Rol"]) != "Administrador")
     {
-        <script> window.location.href='@Url.Action("Index", "Error")'; </script>}
+        <script> window.location.href='@Url.Action("Index", "Error")'; </script>}*@
 
     ViewBag.Title = "NuevaPass";
 

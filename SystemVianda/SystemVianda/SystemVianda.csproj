@@ -113,6 +113,13 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="IMG\2-keys-256x256-png-1.png" />
+    <Content Include="IMG\347118-admin.jpg" />
+    <Content Include="IMG\dark-connections-wallpaper-60523.jpg" />
+    <Content Include="IMG\img-original.jpg" />
+    <Content Include="IMG\LAVIANDA_LOGO_NEGRO.png" />
+    <Content Include="IMG\orig_494450.jpg" />
+    <Content Include="IMG\User.png" />
     <Content Include="Scripts\datatables.min.css" />
     <Content Include="Scripts\datatables.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -154,10 +161,24 @@
     <Content Include="Views\Rutas\Details.cshtml" />
     <Content Include="Views\Rutas\Edit.cshtml" />
     <Content Include="Views\Rutas\Index.cshtml" />
+    <Content Include="Views\AsignacionRutas\Create.cshtml" />
+    <Content Include="Views\AsignacionRutas\Delete.cshtml" />
+    <Content Include="Views\AsignacionRutas\Details.cshtml" />
+    <Content Include="Views\AsignacionRutas\Edit.cshtml" />
+    <Content Include="Views\AsignacionRutas\Index.cshtml" />
+    <Content Include="Views\DetallesRutas\Create.cshtml" />
+    <Content Include="Views\DetallesRutas\Delete.cshtml" />
+    <Content Include="Views\DetallesRutas\Details.cshtml" />
+    <Content Include="Views\DetallesRutas\Edit.cshtml" />
+    <Content Include="Views\DetallesRutas\Index.cshtml" />
+    <Content Include="Views\Login\IniciarSesion.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AsignacionRutasController.cs" />
+    <Compile Include="Controllers\DetallesRutasController.cs" />
     <Compile Include="Controllers\EmpleadosController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\RolesController.cs" />
     <Compile Include="Controllers\RutasController.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
@@ -167,6 +188,10 @@
     <Compile Include="Migrations\201908081748375_Inicio.cs" />
     <Compile Include="Migrations\201908081748375_Inicio.Designer.cs">
       <DependentUpon>201908081748375_Inicio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908082110005_Asig.cs" />
+    <Compile Include="Migrations\201908082110005_Asig.Designer.cs">
+      <DependentUpon>201908082110005_Asig.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Contexto.cs" />
@@ -201,6 +226,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201908081748375_Inicio.resx">
       <DependentUpon>201908081748375_Inicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908082110005_Asig.resx">
+      <DependentUpon>201908082110005_Asig.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
