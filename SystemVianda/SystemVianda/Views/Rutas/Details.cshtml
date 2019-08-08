@@ -1,0 +1,48 @@
+﻿@model SystemVianda.Models.TblRutas
+
+@{
+    ViewBag.Title = "Details";
+}
+<div class="container-fluid ">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="row">
+                <div class="col-lg-push-12">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading"><h4>Detalles De Ruta</h4></div>
+                        <div class="panel-body">
+                            <div>
+
+                                <div>
+                                  
+                                    <dl class="dl-horizontal">
+                                        <dt>
+                                            @Html.DisplayNameFor(model => model.Nombre)
+                                        </dt>
+
+                                        <dd>
+                                            @Html.DisplayFor(model => model.Nombre)
+                                        </dd>
+
+                                        <dt>
+                                            @Html.DisplayNameFor(model => model.Descripcion)
+                                        </dt>
+
+                                        <dd>
+                                            @Html.DisplayFor(model => model.Descripcion)
+                                        </dd>
+
+                                    </dl>
+                                </div>
+                                <p>
+                                    @Html.ActionLink("Editar", "Edit", new { id = Model.IdRuta }, new { @class = "btn btn-success ", }) |
+                                    @Html.ActionLink("Atras", "Index", null, new { @class = "btn btn-default " })
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

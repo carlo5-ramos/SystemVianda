@@ -1,0 +1,111 @@
+﻿@model IEnumerable<SystemVianda.Models.TblEmpleados>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<link href="~/Scripts/datatables.min.css" rel="stylesheet" />
+
+<script src="~/Scripts/datatables.min.js"></script>
+<h4>Empleados</h4>
+<hr />
+
+
+<p>
+    @Html.ActionLink("Nuevo Empleado", "Create",  null, htmlAttributes: new { @class = "btn btn-primary" })
+    @Html.ActionLink("Nuevo Rol", "Create", "Roles", null, htmlAttributes: new { @class = "btn btn-primary" })
+    @Html.ActionLink("Nuevo Usuario", "Create", "Usuarios", null, htmlAttributes: new { @class = "btn btn-primary" })
+
+
+</p>
+<table class="table" id="dtTable">
+    <thead>
+
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Apellido)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Edad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dui)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Direccion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Telefono)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Celular)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sexo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EstadoCivil)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cargo)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Apellido)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Edad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Dui)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nit)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Direccion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Telefono)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Celular)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sexo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EstadoCivil)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cargo)
+                </td>
+                <td>
+                    <div class="bottom">
+                        @Html.ActionLink(" ", "Edit", new { id = item.IdEmpleado }, new { @class = "btnc btn-sm btn-primary glyphicon glyphicon-edit", Title = "Editar" })
+                        @Html.ActionLink(" ", "Details", new { id = item.IdEmpleado}, new { @class = "btnc btn-sm btn-info glyphicon glyphicon-eye-open", Title = "Detalles" })
+                        @Html.ActionLink(" ", "Delete", new { id = item.IdEmpleado }, new { @class = "btnc btn-sm btn-danger glyphicon glyphicon-trash", Title = "Eliminar" })
+                    </div>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+<script src="~/Scripts/TableIdioma.js"></script>

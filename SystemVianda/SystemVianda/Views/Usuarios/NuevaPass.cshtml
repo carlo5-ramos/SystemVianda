@@ -1,0 +1,103 @@
+﻿@model SystemVianda.Models.TblUsuarios
+
+@{
+
+
+    if (Session["IdUsuario"] == null || Convert.ToString(Session["Rol"]) != "Administrador")
+    {
+        <script> window.location.href='@Url.Action("Index", "Error")'; </script>}
+
+    ViewBag.Title = "NuevaPass";
+
+}
+<script src="~/Content/toastr/toastr.min.js"></script>
+<link href="~/Content/toastr/toastr.min.css" rel="stylesheet" />
+
+<style>
+    #toast-container > div {
+        opacity: 1;
+    }
+</style>
+
+
+<h2>Cambio de Contraseña</h2>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+            <form action="@Url.Action("NuevaPass","Users")" method="post" autocomplete="off" id="frmValidar" name="frmValidar">
+                <input type="hidden" name="txtId" value="@Model.IdUsuario" />
+                <div class="form-group">
+                    <input type="password" class="form-control" name="txtPassActual" id="txtPassActual" value="" placeholder="Contraseña Actual" required autofocus />
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" name="txtPass" id="txtPass" value="" placeholder="Contraseña Nueva" />
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" name="confimarPass" id="confimarPass" value="" placeholder="Confirmar Contraseña" />
+                </div>
+                <input type="submit" onclick="" name="btn" class="btn btn-success" value="Cambiar Contraseña" />
+            </form>
+
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+</div>
+<div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+        <a href="@Url.Action("Index")" class="btn btn-default btn-lg">Atras</a>
+    </div>
+</div>
+
+<!--Validaciones Javascript-->
+
+@section FrmValidar{
+    <script type="text/javascript">
+        $("#frmValidar").validate({
+        rules: {
+
+        txtPassActual: {
+        required: true
+
+        },
+        txtPass: {
+        required: true
+        },
+        confimarPass: {
+        equalTo: "#txtPass"
+        }
+        },
+
+        messages: {
+        txtPassActual: {
+        required: "Este campo es requerido."
+        },
+        txtPass: {
+        required: "Este campo es requerido."
+        },
+
+        confimarPass: {
+        equalTo: "Las credenciales no coinciden."
+        },
+
+        }
+        });
+    </script>
+}
+
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        //alert('');
+
+
+        toastr.error('Hola @Session["Nombre"] estas seguro de cambiar tu contraseña?');
+
+    });
+</script>
+
+
+

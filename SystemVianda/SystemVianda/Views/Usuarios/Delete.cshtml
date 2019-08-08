@@ -1,0 +1,85 @@
+﻿@model SystemVianda.Models.TblUsuarios
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<div class="container-fluid ">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="row">
+                <div class="col-lg-push-12">
+                    <div class="panel panel-danger">
+                        <div class="panel-heading"><h4>Eliminar Usuario</h4></div>
+                        <div class="panel-body">
+                            <h3>Esta seguro que desea eliminar este registro?</h3>
+                            <div>
+                                <div>
+
+                                    <dl class="dl-horizontal">
+                                        <dt>
+                                            @Html.DisplayNameFor(model => model.Empleado.Nombre)
+                                        </dt>
+
+                                        <dd>
+                                            @Html.DisplayFor(model => model.Empleado.Nombre)
+                                        </dd>
+
+                                        <dt>
+                                            @Html.DisplayNameFor(model => model.Roles.Rol)
+                                        </dt>
+
+                                        <dd>
+                                            @Html.DisplayFor(model => model.Roles.Rol)
+                                        </dd>
+
+                                        <dt>
+                                            @Html.DisplayNameFor(model => model.Usuario)
+                                        </dt>
+
+                                        <dd>
+                                            @Html.DisplayFor(model => model.Usuario)
+                                        </dd>
+
+                                        <dt>
+                                            @Html.DisplayNameFor(model => model.Password)
+                                        </dt>
+
+                                        <dd>
+                                            @Html.DisplayFor(model => model.Password)
+                                        </dd>
+
+                                        <dt>
+                                            @Html.DisplayNameFor(model => model.ConfirmPassword)
+                                        </dt>
+
+                                        <dd>
+                                            @Html.DisplayFor(model => model.ConfirmPassword)
+                                        </dd>
+
+                                        <dt>
+                                            @Html.DisplayNameFor(model => model.Estado)
+                                        </dt>
+
+                                        <dd>
+                                            @Html.DisplayFor(model => model.Estado)
+                                        </dd>
+
+                                    </dl>
+
+                                    @using (Html.BeginForm())
+                                    {
+                                        @Html.AntiForgeryToken()
+                                        <div class="form-actions no-color">
+                                            <input type="submit" value="Eliminar" class="btn btn-danger " /> |
+                                            @Html.ActionLink("Atras", "Index", null, new { @class = "btn btn-default " })
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

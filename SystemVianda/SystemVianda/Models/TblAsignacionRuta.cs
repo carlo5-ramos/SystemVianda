@@ -13,9 +13,9 @@ namespace SystemVianda.Models
 
 
         [Required]
-        public int IdRutas { get; set; }
+        public int IdRuta { get; set; }
         [Required]
-        public int IdEmpleados { get; set; }
+        public int IdEmpleado { get; set; }
 
         [DataType(DataType.Date)]
         public DateTime Fecha { get; set; }
@@ -23,9 +23,9 @@ namespace SystemVianda.Models
         //Relaciones
 
         public virtual TblRutas Rutas { get; set; }
-        public virtual TblEmpleado Empleado { get; set; }
+        public virtual TblEmpleados Empleado { get; set; }
 
-        public ICollection<Tbl_DetallesR> DetallesRs { get; set; }
+        public ICollection<TblDetallesRuta> DetallesRutas { get; set; }
 
     }
 }
