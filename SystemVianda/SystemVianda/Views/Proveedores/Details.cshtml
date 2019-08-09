@@ -1,0 +1,113 @@
+﻿@model SystemVianda.Models.TblProveedores
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="container-fluid ">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="row">
+                <div class="col-lg-push-12">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading"><h4>Detalles De Proveedor</h4></div>
+                        <div class="panel-body">
+                            <div>
+                                <div>
+
+                                    <dl class="dl-horizontal">
+                                        <dt>
+                                            @Html.DisplayNameFor(model => model.Usuarios.Usuario)
+                                        </dt>
+
+                                        <dd>
+                                            @Html.DisplayFor(model => model.Usuarios.Usuario)
+                                        </dd>
+
+                                        <dt>
+                                            @Html.DisplayNameFor(model => model.Empresa)
+                                        </dt>
+
+                                        <dd>
+                                            @Html.DisplayFor(model => model.Empresa)
+                                        </dd>
+
+                                        <dt>
+                                            @Html.DisplayNameFor(model => model.Contacto)
+                                        </dt>
+
+                                        <dd>
+                                            @Html.DisplayFor(model => model.Contacto)
+                                        </dd>
+
+                                        <dt>
+                                            @Html.DisplayNameFor(model => model.Telefono)
+                                        </dt>
+
+                                        <dd>
+                                            @Html.DisplayFor(model => model.Telefono)
+                                        </dd>
+
+                                        <dt>
+                                            @Html.DisplayNameFor(model => model.Direccion)
+                                        </dt>
+
+                                        <dd>
+                                            @Html.DisplayFor(model => model.Direccion)
+                                        </dd>
+
+                                        <dt>
+                                            @Html.DisplayNameFor(model => model.Email)
+                                        </dt>
+
+                                        <dd>
+                                            @Html.DisplayFor(model => model.Email)
+                                        </dd>
+
+                                        <dt>
+                                            @Html.DisplayNameFor(model => model.Nrc)
+                                        </dt>
+
+                                        <dd>
+                                            @Html.DisplayFor(model => model.Nrc)
+                                        </dd>
+
+                                        <dt>
+                                            @Html.DisplayNameFor(model => model.Nit)
+                                        </dt>
+
+                                        <dd>
+                                            @Html.DisplayFor(model => model.Nit)
+                                        </dd>
+
+                                        <dt>
+                                            @Html.DisplayNameFor(model => model.Web)
+                                        </dt>
+
+                                        <dd>
+                                            @Html.DisplayFor(model => model.Web)
+                                        </dd>
+
+                                        <dt>
+                                            @Html.DisplayNameFor(model => model.FechaRegistro)
+                                        </dt>
+
+                                        <dd>
+                                            @Html.DisplayFor(model => model.FechaRegistro)
+                                        </dd>
+
+                                    </dl>
+                                </div>
+                                <p>
+                                    @Html.ActionLink("Editar", "Edit", new { id = Model.IdProveedor }, new { @class = "btn btn-success ", }) |
+                                    @Html.ActionLink("Atras", "Index", null, new { @class = "btn btn-default " })
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

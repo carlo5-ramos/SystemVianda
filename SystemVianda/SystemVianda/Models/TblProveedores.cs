@@ -26,9 +26,6 @@ namespace SystemVianda.Models
         [EmailAddress(ErrorMessage = "Digite una cuenta valida.")]
         public string Email { get; set; }
 
-        [Display(Name = "DUI")]
-        [StringLength(10, ErrorMessage = "Formato inválido {0}", MinimumLength = 10)]
-        public string Dui { get; set; }
 
         [Display(Name = "NRC")]
         public string Nrc { get; set; }

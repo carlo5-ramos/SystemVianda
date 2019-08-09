@@ -172,13 +172,20 @@
     <Content Include="Views\DetallesRutas\Edit.cshtml" />
     <Content Include="Views\DetallesRutas\Index.cshtml" />
     <Content Include="Views\Login\IniciarSesion.cshtml" />
+    <Content Include="Views\Proveedores\Create.cshtml" />
+    <Content Include="Views\Proveedores\Delete.cshtml" />
+    <Content Include="Views\Proveedores\Details.cshtml" />
+    <Content Include="Views\Proveedores\Edit.cshtml" />
+    <Content Include="Views\Proveedores\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AsignacionRutasController.cs" />
+    <Compile Include="Controllers\ComprasController.cs" />
     <Compile Include="Controllers\DetallesRutasController.cs" />
     <Compile Include="Controllers\EmpleadosController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\ProveedoresController.cs" />
     <Compile Include="Controllers\RolesController.cs" />
     <Compile Include="Controllers\RutasController.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
@@ -193,7 +200,12 @@
     <Compile Include="Migrations\201908082110005_Asig.Designer.cs">
       <DependentUpon>201908082110005_Asig.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201908082144232_DuiElimine.cs" />
+    <Compile Include="Migrations\201908082144232_DuiElimine.Designer.cs">
+      <DependentUpon>201908082144232_DuiElimine.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\ComprasAndDetalles.cs" />
     <Compile Include="Models\Contexto.cs" />
     <Compile Include="Models\TblAsignacionRuta.cs" />
     <Compile Include="Models\TblCategorias.cs" />
@@ -222,6 +234,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Compras\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201908081748375_Inicio.resx">
@@ -229,6 +242,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201908082110005_Asig.resx">
       <DependentUpon>201908082110005_Asig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908082144232_DuiElimine.resx">
+      <DependentUpon>201908082144232_DuiElimine.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

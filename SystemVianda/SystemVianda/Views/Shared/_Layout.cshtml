@@ -129,195 +129,16 @@
 
 
 
-                    <div class="panel panel-success">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-                                    <span class="glyphicon glyphicon-usd">
-                                    </span>Gestión de Ventas
-                                </a>
-                            </h4>
-                        </div>
-                        <div id="collapseTwo" class="panel-collapse collapse">
-                            <div class="panel-body">
-                                <table class="table">
-                                    <tr>
-                                        <td>
-                                            <span class="glyphicon glyphicon glyphicon-plus text-primary"></span><a href="@Url.Action("Index", "Ventas")">Nueva Venta</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <span class="glyphicon glyphicon-tasks text-success"></span><a href="@Url.Action("ListaVentas", "Ventas")">Ventas Registradas</a>
-                                            <span class="badge"></span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <span class="glyphicon glyphicon-user text-primary"></span><a href="@Url.Action("Create", "Clientes")">Nuevo Cliente</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <span class="glyphicon glyphicon-tasks text-success"></span><a href="@Url.Action("Index", "Clientes")">Clientes Registrados</a>
-                                            <span class="badge"></span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <span class="glyphicon glyphicon glyphicon-plus text-primary"></span><a href="@Url.Action("Create", "Servicios")">Nuevo Servicio</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <span class="glyphicon glyphicon-tasks text-success"></span><a href="@Url.Action("Index", "Servicios")">Servicio Registrados</a>
-                                            <span class="badge"></span>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
 
-                    </div>
-                    <div class="panel panel-success">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseConfig1">
-                                    <span class="glyphicon glyphicon-lock">
-                                    </span>Gestión de Caja
-                                </a>
-                            </h4>
-                        </div>
-                        <div id="collapseConfig1" class="panel-collapse collapse">
-                            <div class="panel-body">
-                                <table class="table">
-                                    <tr>
-                                        <td>
-                                            <span class="glyphicon glyphicon glyphicon-plus text-primary"></span><a href="@Url.Action("Index", "Cajas")">Caja</a>
-                                        </td>
-                                    </tr>
-
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="panel panel-success">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
-                                    <span class="glyphicon glyphicon-barcode">
-                                    </span>Gestión de Productos
-                                </a>
-                            </h4>
-                        </div>
-                        <div id="collapseThree" class="panel-collapse collapse">
-                            <div class="panel-body">
-                                <table class="table">
-                                    <tr>
-                                        <td>
-                                            <span class="glyphicon glyphicon-plus text-primary"></span><a href="@Url.Action("Create", "Productos")">Nuevo Producto</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <span class="glyphicon glyphicon-tasks text-success"></span><a href="@Url.Action("Index", "Productos")">Productos Registrados</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <span class="glyphicon glyphicon-plus text-primary"></span><a href="@Url.Action("Create", "Categorias")">Nueva Categoria</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <span class="glyphicon glyphicon-tasks text-success"></span><a href="@Url.Action("Index", "Categorias")">Categorias Registradas</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <span class="glyphicon glyphicon-plus text-primary"></span><a href="@Url.Action("Create", "Marcas")">Nueva Marca</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <span class="glyphicon glyphicon-tasks text-success"></span><a href="@Url.Action("Index", "Marcas")">Marcas Registradas</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <span class="glyphicon glyphicon-plus text-primary"></span><a href="@Url.Action("Create", "Ubicaciones")">Nueva Ubicación</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <span class="glyphicon glyphicon-tasks text-success"></span><a href="@Url.Action("Index", "Ubicaciones")">Ubicacines Registradas</a>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
+                    @* modulo rutas *@
 
 
-
-                    @*@if (this.User.IsInRole("Admin"))
-                        {*@
-                    <div class="panel panel-success">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
-                                    <span class="glyphicon glyphicon-file">
-                                    </span>Reportes
-                                </a>
-                            </h4>
-                        </div>
-                        <div id="collapseFour" class="panel-collapse collapse">
-                            <div class="panel-body">
-                                <table class="table">
-                                    <tr>
-                                        <td>
-                                            <span class="glyphicon glyphicon-usd"></span><a href="@Url.Action("Index", "Tickets")">Tickets</a>
-                                        </td>
-                                    </tr>
-
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    @* }*@
-
-                    <div class="panel panel-success">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-                                <a data-toggle="collapse" data-parent="#accordion" href="#Descargas">
-                                    <span class="glyphicon glyphicon-export">
-                                    </span>Uso del Salón
-                                </a>
-                            </h4>
-                        </div>
-                        <div id="Descargas" class="panel-collapse collapse">
-                            <div class="panel-body">
-                                <table class="table">
-                                    <tr>
-                                        <td>
-                                            <span class="glyphicon glyphicon-plus text-primary"></span><a href="@Url.Action("Index", "Descargas")">Uso para Salón</a>
-                                        </td>
-                                    </tr>
-
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-
-                    @* modulo configuraciones *@
-                    @*@if (this.User.IsInRole("Admin"))
-                        {*@
                     <div class="panel panel-success">
                         <div class="panel-heading">
                             <h4 class="panel-title">
                                 <a data-toggle="collapse" data-parent="#accordion" href="#collapseConfig2">
-                                    <span class="glyphicon glyphicon-wrench">
-                                    </span>Configuración
+                                    <span class="glyphicon glyphicon-resize-full">
+                                    </span>Rutas
                                 </a>
                             </h4>
                         </div>
@@ -326,22 +147,32 @@
                                 <table class="table">
                                     <tr>
                                         <td>
-                                            <span class="glyphicon glyphicon-user"></span>@Html.ActionLink("Nuevo Empleado", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })
+                                            <span class="glyphicon glyphicon-transfer"></span>@Html.ActionLink("Nueva Ruta", "Create", "Rutas", routeValues: null, htmlAttributes: new { id = "registerLink" })
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <span class="glyphicon glyphicon-tasks"></span><a href="@Url.Action("Index", "Account")">Empleados Registrados</a>
+                                            <span class="glyphicon glyphicon-list"></span>@Html.ActionLink("Rutas Registradas", "Index", "Rutas", routeValues: null, htmlAttributes: new { id = "registerLink" })
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <span class="glyphicon glyphicon-user"></span>@Html.ActionLink("Roles", "Roles", "Manage", routeValues: null, htmlAttributes: new { id = "registerLink" })
+                                            <span class="glyphicon glyphicon-user"></span>@Html.ActionLink("Asignar Ruta", "Create", "AsignacionRutas", routeValues: null, htmlAttributes: new { id = "registerLink" })
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <span class="glyphicon glyphicon-tasks"></span><a href="@Url.Action("AddRoleToUser", "Manage")">Agregar Rol</a>
+                                            <span class="glyphicon glyphicon-list"></span>@Html.ActionLink("Asignaciones Registradas", "Index", "AsignacionRutas", routeValues: null, htmlAttributes: new { id = "registerLink" })
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="glyphicon glyphicon-pencil"></span>@Html.ActionLink("Nuevo Detalle De Ruta", "Create", "DetallesRutas", routeValues: null, htmlAttributes: new { id = "registerLink" })
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="glyphicon glyphicon-list"></span>@Html.ActionLink(" Detalles Registrados", "Index", "DetallesRutas", routeValues: null, htmlAttributes: new { id = "registerLink" })
                                         </td>
                                     </tr>
 
@@ -353,9 +184,67 @@
 
 
 
-                    @* }*@
-                </div>
 
+                    @* modulo Usuarios *@
+
+                    <div class="panel panel-success">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+                                    <span class="glyphicon glyphicon-file">
+                                    </span>Empleados
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseFour" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <table class="table">
+                                    <tr>
+                                        <td>
+                                            <span class="glyphicon glyphicon-user"></span>@Html.ActionLink("Nuevo Empleado", "Create", "Empleados", routeValues: null, htmlAttributes: new { id = "registerLink" })
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="glyphicon glyphicon-list"></span>@Html.ActionLink("Empleados Registrados", "Index", "Empleados", routeValues: null, htmlAttributes: new { id = "registerLink" })
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="glyphicon glyphicon-user"></span>@Html.ActionLink("Nuevo Rol", "Create", "Roles", routeValues: null, htmlAttributes: new { id = "registerLink" })
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="glyphicon glyphicon-list"></span>@Html.ActionLink("Roles Registradas", "Index", "Roles", routeValues: null, htmlAttributes: new { id = "registerLink" })
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="glyphicon glyphicon-user"></span>@Html.ActionLink("Nuevo Usuario", "Create", "Usuarios", routeValues: null, htmlAttributes: new { id = "registerLink" })
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="glyphicon glyphicon-list"></span>@Html.ActionLink(" Usuarios Registrados", "Index", "Usuarios", routeValues: null, htmlAttributes: new { id = "registerLink" })
+                                        </td>
+                                    </tr>
+
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+
+                </div>
+         
 
             </div>
             <div class="col-sm-9 col-md-9">

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -22,5 +23,6 @@ namespace SystemVianda.Models
         public DbSet<TblDetallesRuta> DetallesRutas { get; set; }
         public DbSet<TblCompras> Compras { get; set; }
         public DbSet<TblDetallesCompras> DetallesCompras { get; set; }
+        public DbSet<TblProductos> Productos { get; set; }
     }
 }

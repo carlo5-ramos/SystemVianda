@@ -9,7 +9,7 @@ namespace SystemVianda.Models
     public class TblCompras
     {
         [Key]
-        public int Compra { get; set; }
+        public int IdCompra { get; set; }
 
         [Display(Name = "COD/Factura")]
         public string CodigoFactura { get; set; }
