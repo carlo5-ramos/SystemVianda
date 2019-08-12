@@ -37,7 +37,7 @@ namespace SystemVianda.Models
         public virtual TblRoles Roles { get; set; }
         public virtual TblEmpleados Empleado { get; set; }
         public ICollection<TblClientes> Clientes { get; set; }
-        public ICollection<TblProveedores> Proveedores { get; set; }
+        //public ICollection<TblProveedores> Proveedores { get; set; }
         public ICollection<TblCompras> Compras { get; set; }
     }
 }

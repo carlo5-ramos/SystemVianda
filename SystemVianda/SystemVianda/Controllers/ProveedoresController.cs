@@ -17,8 +17,8 @@ namespace SystemVianda.Controllers
         // GET: Proveedores
         public ActionResult Index()
         {
-            var proveedores = db.Proveedores.Include(t => t.Usuarios);
-            return View(proveedores.ToList());
+            //var proveedores = db.Proveedores.Include(t => t.Usuarios);
+            return View(db.Proveedores.ToList());
         }
 
         // GET: Proveedores/Details/5
@@ -57,7 +57,7 @@ namespace SystemVianda.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.IdUsuario = new SelectList(db.Usuarios, "IdUsuario", "Usuario", tblProveedores.IdUsuario);
+            //ViewBag.IdUsuario = new SelectList(db.Usuarios, "IdUsuario", "Usuario", tblProveedores.IdUsuario);
             return View(tblProveedores);
         }
 
@@ -73,7 +73,7 @@ namespace SystemVianda.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.IdUsuario = new SelectList(db.Usuarios, "IdUsuario", "Usuario", tblProveedores.IdUsuario);
+            //ViewBag.IdUsuario = new SelectList(db.Usuarios, "IdUsuario", "Usuario", tblProveedores.IdUsuario);
             return View(tblProveedores);
         }
 
@@ -90,7 +90,7 @@ namespace SystemVianda.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.IdUsuario = new SelectList(db.Usuarios, "IdUsuario", "Usuario", tblProveedores.IdUsuario);
+            //ViewBag.IdUsuario = new SelectList(db.Usuarios, "IdUsuario", "Usuario", tblProveedores.IdUsuario);
             return View(tblProveedores);
         }
 

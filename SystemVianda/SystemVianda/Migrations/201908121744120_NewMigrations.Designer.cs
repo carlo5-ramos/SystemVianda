@@ -7,13 +7,13 @@ namespace SystemVianda.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.3.0-preview7-19363-02")]
-    public sealed partial class Asig : IMigrationMetadata
+    public sealed partial class NewMigrations : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Asig));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(NewMigrations));
         
         string IMigrationMetadata.Id
         {
-            get { return "201908082110005_Asig"; }
+            get { return "201908121744120_NewMigrations"; }
         }
         
         string IMigrationMetadata.Source

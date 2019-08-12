@@ -3,7 +3,7 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Inicio : DbMigration
+    public partial class NewMigrations : DbMigration
     {
         public override void Up()
         {
@@ -12,17 +12,15 @@
                 c => new
                     {
                         IdAsignacionRuta = c.Int(nullable: false, identity: true),
-                        IdRutas = c.Int(nullable: false),
-                        IdEmpleados = c.Int(nullable: false),
+                        IdRuta = c.Int(nullable: false),
+                        IdEmpleado = c.Int(nullable: false),
                         Fecha = c.DateTime(nullable: false),
-                        Empleado_IdEmpleado = c.Int(),
-                        Rutas_IdRuta = c.Int(),
                     })
                 .PrimaryKey(t => t.IdAsignacionRuta)
-                .ForeignKey("dbo.TblEmpleados", t => t.Empleado_IdEmpleado)
-                .ForeignKey("dbo.TblRutas", t => t.Rutas_IdRuta)
-                .Index(t => t.Empleado_IdEmpleado)
-                .Index(t => t.Rutas_IdRuta);
+                .ForeignKey("dbo.TblEmpleados", t => t.IdEmpleado, cascadeDelete: true)
+                .ForeignKey("dbo.TblRutas", t => t.IdRuta, cascadeDelete: true)
+                .Index(t => t.IdRuta)
+                .Index(t => t.IdEmpleado);
             
             CreateTable(
                 "dbo.TblDetallesRutas",
@@ -34,8 +32,8 @@
                         TblAsignacionRuta_IdAsignacionRuta = c.Int(),
                     })
                 .PrimaryKey(t => t.IdDetallesRuta)
-                .ForeignKey("dbo.TblClientes", t => t.IdCliente, cascadeDelete: false)
-                .ForeignKey("dbo.TblRutas", t => t.IdRuta, cascadeDelete: false)
+                .ForeignKey("dbo.TblClientes", t => t.IdCliente, cascadeDelete: true)
+                .ForeignKey("dbo.TblRutas", t => t.IdRuta, cascadeDelete: true)
                 .ForeignKey("dbo.TblAsignacionRutas", t => t.TblAsignacionRuta_IdAsignacionRuta)
                 .Index(t => t.IdRuta)
                 .Index(t => t.IdCliente)
@@ -76,8 +74,8 @@
                         IdRol = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.IdUsuario)
-                .ForeignKey("dbo.TblEmpleados", t => t.IdEmpleado, cascadeDelete: false)
-                .ForeignKey("dbo.TblRoles", t => t.IdRol, cascadeDelete: false)
+                .ForeignKey("dbo.TblEmpleados", t => t.IdEmpleado, cascadeDelete: true)
+                .ForeignKey("dbo.TblRoles", t => t.IdRol, cascadeDelete: true)
                 .Index(t => t.IdEmpleado)
                 .Index(t => t.IdRol);
             
@@ -85,7 +83,7 @@
                 "dbo.TblCompras",
                 c => new
                     {
-                        Compra = c.Int(nullable: false, identity: true),
+                        IdCompra = c.Int(nullable: false, identity: true),
                         CodigoFactura = c.String(),
                         IdProveedor = c.Int(nullable: false),
                         IdUsuario = c.Int(nullable: false),
@@ -94,9 +92,9 @@
                         Estado = c.Boolean(nullable: false),
                         Descripcion = c.String(),
                     })
-                .PrimaryKey(t => t.Compra)
-                .ForeignKey("dbo.TblProveedores", t => t.IdProveedor, cascadeDelete: false)
-                .ForeignKey("dbo.TblUsuarios", t => t.IdUsuario, cascadeDelete: false)
+                .PrimaryKey(t => t.IdCompra)
+                .ForeignKey("dbo.TblProveedores", t => t.IdProveedor, cascadeDelete: true)
+                .ForeignKey("dbo.TblUsuarios", t => t.IdUsuario, cascadeDelete: true)
                 .Index(t => t.IdProveedor)
                 .Index(t => t.IdUsuario);
             
@@ -104,23 +102,22 @@
                 "dbo.TblDetallesCompras",
                 c => new
                     {
-                        DetallesC = c.Int(nullable: false, identity: true),
-                        IdProductos = c.Int(nullable: false),
+                        IdDetallesC = c.Int(nullable: false, identity: true),
+                        IdProducto = c.Int(nullable: false),
                         PrecioCompra = c.Double(nullable: false),
                         PesoFactura = c.Double(nullable: false),
-                        PesoReal = c.Double(nullable: false),
+                        Cantidad = c.Double(nullable: false),
                         SubTotal = c.Double(nullable: false),
                         TacticoFactura = c.Double(nullable: false),
                         Merma = c.Double(nullable: false),
-                        Compra = c.Int(nullable: false),
+                        IdCompra = c.Int(nullable: false),
                         Descripcion = c.String(),
-                        Productos_IdProducto = c.Int(),
                     })
-                .PrimaryKey(t => t.DetallesC)
-                .ForeignKey("dbo.TblCompras", t => t.Compra, cascadeDelete: false)
-                .ForeignKey("dbo.TblProductos", t => t.Productos_IdProducto)
-                .Index(t => t.Compra)
-                .Index(t => t.Productos_IdProducto);
+                .PrimaryKey(t => t.IdDetallesC)
+                .ForeignKey("dbo.TblCompras", t => t.IdCompra, cascadeDelete: true)
+                .ForeignKey("dbo.TblProductos", t => t.IdProducto, cascadeDelete: true)
+                .Index(t => t.IdProducto)
+                .Index(t => t.IdCompra);
             
             CreateTable(
                 "dbo.TblProductos",
@@ -137,7 +134,7 @@
                         IdCategoria = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.IdProducto)
-                .ForeignKey("dbo.TblCategorias", t => t.IdCategoria, cascadeDelete: false)
+                .ForeignKey("dbo.TblCategorias", t => t.IdCategoria, cascadeDelete: true)
                 .Index(t => t.IdCategoria);
             
             CreateTable(
@@ -160,16 +157,12 @@
                         Telefono = c.String(nullable: false),
                         Direccion = c.String(nullable: false),
                         Email = c.String(),
-                        Dui = c.String(maxLength: 10),
                         Nrc = c.String(),
                         Nit = c.String(maxLength: 17),
                         Web = c.String(),
                         FechaRegistro = c.DateTime(nullable: false),
-                        IdUsuario = c.Int(nullable: false),
                     })
-                .PrimaryKey(t => t.IdProveedor)
-                .ForeignKey("dbo.TblUsuarios", t => t.IdUsuario, cascadeDelete: false)
-                .Index(t => t.IdUsuario);
+                .PrimaryKey(t => t.IdProveedor);
             
             CreateTable(
                 "dbo.TblEmpleados",
@@ -216,22 +209,20 @@
         {
             DropForeignKey("dbo.TblDetallesRutas", "TblAsignacionRuta_IdAsignacionRuta", "dbo.TblAsignacionRutas");
             DropForeignKey("dbo.TblDetallesRutas", "IdRuta", "dbo.TblRutas");
-            DropForeignKey("dbo.TblAsignacionRutas", "Rutas_IdRuta", "dbo.TblRutas");
+            DropForeignKey("dbo.TblAsignacionRutas", "IdRuta", "dbo.TblRutas");
             DropForeignKey("dbo.TblUsuarios", "IdRol", "dbo.TblRoles");
             DropForeignKey("dbo.TblUsuarios", "IdEmpleado", "dbo.TblEmpleados");
-            DropForeignKey("dbo.TblAsignacionRutas", "Empleado_IdEmpleado", "dbo.TblEmpleados");
+            DropForeignKey("dbo.TblAsignacionRutas", "IdEmpleado", "dbo.TblEmpleados");
             DropForeignKey("dbo.TblCompras", "IdUsuario", "dbo.TblUsuarios");
-            DropForeignKey("dbo.TblProveedores", "IdUsuario", "dbo.TblUsuarios");
             DropForeignKey("dbo.TblCompras", "IdProveedor", "dbo.TblProveedores");
-            DropForeignKey("dbo.TblDetallesCompras", "Productos_IdProducto", "dbo.TblProductos");
+            DropForeignKey("dbo.TblDetallesCompras", "IdProducto", "dbo.TblProductos");
             DropForeignKey("dbo.TblProductos", "IdCategoria", "dbo.TblCategorias");
-            DropForeignKey("dbo.TblDetallesCompras", "Compra", "dbo.TblCompras");
+            DropForeignKey("dbo.TblDetallesCompras", "IdCompra", "dbo.TblCompras");
             DropForeignKey("dbo.TblClientes", "TblUsuarios_IdUsuario", "dbo.TblUsuarios");
             DropForeignKey("dbo.TblDetallesRutas", "IdCliente", "dbo.TblClientes");
-            DropIndex("dbo.TblProveedores", new[] { "IdUsuario" });
             DropIndex("dbo.TblProductos", new[] { "IdCategoria" });
-            DropIndex("dbo.TblDetallesCompras", new[] { "Productos_IdProducto" });
-            DropIndex("dbo.TblDetallesCompras", new[] { "Compra" });
+            DropIndex("dbo.TblDetallesCompras", new[] { "IdCompra" });
+            DropIndex("dbo.TblDetallesCompras", new[] { "IdProducto" });
             DropIndex("dbo.TblCompras", new[] { "IdUsuario" });
             DropIndex("dbo.TblCompras", new[] { "IdProveedor" });
             DropIndex("dbo.TblUsuarios", new[] { "IdRol" });
@@ -240,8 +231,8 @@
             DropIndex("dbo.TblDetallesRutas", new[] { "TblAsignacionRuta_IdAsignacionRuta" });
             DropIndex("dbo.TblDetallesRutas", new[] { "IdCliente" });
             DropIndex("dbo.TblDetallesRutas", new[] { "IdRuta" });
-            DropIndex("dbo.TblAsignacionRutas", new[] { "Rutas_IdRuta" });
-            DropIndex("dbo.TblAsignacionRutas", new[] { "Empleado_IdEmpleado" });
+            DropIndex("dbo.TblAsignacionRutas", new[] { "IdEmpleado" });
+            DropIndex("dbo.TblAsignacionRutas", new[] { "IdRuta" });
             DropTable("dbo.TblRutas");
             DropTable("dbo.TblRoles");
             DropTable("dbo.TblEmpleados");

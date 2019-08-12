@@ -192,17 +192,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201908081748375_Inicio.cs" />
-    <Compile Include="Migrations\201908081748375_Inicio.Designer.cs">
-      <DependentUpon>201908081748375_Inicio.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201908082110005_Asig.cs" />
-    <Compile Include="Migrations\201908082110005_Asig.Designer.cs">
-      <DependentUpon>201908082110005_Asig.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201908082144232_DuiElimine.cs" />
-    <Compile Include="Migrations\201908082144232_DuiElimine.Designer.cs">
-      <DependentUpon>201908082144232_DuiElimine.cs</DependentUpon>
+    <Compile Include="Migrations\201908121744120_NewMigrations.cs" />
+    <Compile Include="Migrations\201908121744120_NewMigrations.Designer.cs">
+      <DependentUpon>201908121744120_NewMigrations.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ComprasAndDetalles.cs" />
@@ -225,6 +217,7 @@
     <Content Include="Views\web.config" />
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-1.9.1.min.map" />
+    <Content Include="Views\Compras\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -234,17 +227,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Compras\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201908081748375_Inicio.resx">
-      <DependentUpon>201908081748375_Inicio.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201908082110005_Asig.resx">
-      <DependentUpon>201908082110005_Asig.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201908082144232_DuiElimine.resx">
-      <DependentUpon>201908082144232_DuiElimine.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201908121744120_NewMigrations.resx">
+      <DependentUpon>201908121744120_NewMigrations.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

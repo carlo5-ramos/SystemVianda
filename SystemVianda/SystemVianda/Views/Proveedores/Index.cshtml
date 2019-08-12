@@ -20,9 +20,9 @@
 <table class="table" id="dtTable">
     <thead>
         <tr>
-            <th>
+            @*<th>
                 @Html.DisplayNameFor(model => model.Usuarios.Usuario)
-            </th>
+            </th>*@
             <th>
                 @Html.DisplayNameFor(model => model.Empresa)
             </th>
@@ -58,9 +58,9 @@
         @foreach (var item in Model)
         {
             <tr>
-                <td>
+                @*<td>
                     @Html.DisplayFor(modelItem => item.Usuarios.Usuario)
-                </td>
+                </td>*@
                 <td>
                     @Html.DisplayFor(modelItem => item.Empresa)
                 </td>

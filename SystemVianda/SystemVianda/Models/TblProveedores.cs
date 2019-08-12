@@ -41,12 +41,12 @@ namespace SystemVianda.Models
         [Display(Name = "Fecha De Registro")]
         public DateTime FechaRegistro { get; set; }
 
-        public int IdUsuario { get; set; }
+        //public int IdUsuario { get; set; }
 
         //Relaciones
 
-        public virtual TblUsuarios Usuarios { get; set; }
-        public ICollection<TblCompras> Compras { get; set; }
+        //public virtual TblUsuarios Usuarios { get; set; }
+        public virtual ICollection<TblCompras> Compras { get; set; }
 
 
     }

@@ -1,0 +1,318 @@
+﻿@model SystemVianda.Models.TblDetallesCompras
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<center><h4>Nueva Compra</h4></center>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">Proveedor</div>
+                        <div class="panel-body">
+                            <br />
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    @Html.DropDownList("IdProveedor", null, htmlAttributes: new { @class = "form-control btn-success" })
+                                    @Html.ValidationMessageFor(model => model.Compras.IdProveedor, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">Numero de Factura</div>
+                        <div class="panel-body">
+                            <div class="col-sm-12">
+                                <br />
+                                <div class="form-group">
+
+                                    <input type="text" class="form-control" name="NumeroFactura" id="NumeroFactura" value="" placeholder="Numero Factura" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">Fecha Compra</div>
+                        <div class="panel-body">
+                            <div class="col-sm-12">
+                                <br />
+                                <div class="form-group">
+
+                                    <input type="date" name="FechaCompra" id="FechaCompra" class="form-control" value="@DateTime.Now.Year-@DateTime.Now.Month-@DateTime.Now.Day @DateTime.Now.Hour:@DateTime.Now.Minute" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <div class="row">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">Selección Producto</div>
+                        <div class="panel-body">
+                            <div class="col-sm-12">
+                                <br />
+                                <div class="col-sm-3">
+
+                                    <div class="panel-heading text-center"> Código</div>
+                                    <div class="form-group">
+                                        <input type="text" name="Code" id="Code" class="form-control" value="" readonly />
+                                    </div>
+                                </div>
+                                <div class="col-sm-5">
+                                    <div class="panel-heading text-center">Producto</div>
+                                    <div class="form-group">
+                                        @Html.DropDownList("IdProducto", null, htmlAttributes: new { @class = "form-control btn-warning input-block" })
+                                            @Html.ValidationMessageFor(model => model.IdProducto, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="panel-heading text-center">F. de Registro</div>
+                                    <div class="panel-body info">
+                                        <div class="col-sm-12">
+
+                                            <div class="form-group">
+                                                <input type="date" class="form-control" name="FechaRegistro" id="FechaRegistro" value="" />
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <div class="panel-heading text-center">Producto</div>
+                                        <input type="text" class="form-control" name="Producto" id="Producto" value="" readonly placeholder="Producto" />
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <div class="panel-heading text-center">Cantidad</div>
+                                        <input type="number" class="form-control" name="Cantidad" id="Cantidad" value="" placeholder="Cant." />
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <div class="panel-heading text-center">P/C</div>
+                                        <input type="number" class="form-control" name="PrecioCompra" id="PrecioCompra" value="" placeholder="P/Comp." />
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <div class="panel-heading text-center">&ensp;</div>
+                                        <button type="submit" class="btn btn-primary btn-block" name="btnEnviar" id="btnEnviar"><i class="glyphicon glyphicon-shopping-cart"></i> Agregar</button>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <div class="panel-heading text-center">Peso Factura</div>
+                                        <input type="number" class="form-control" name="PesoFactura" id="Peso Factura" value="" placeholder="Peso." />
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <div class="panel-heading text-center">Peso Real</div>
+                                        <input type="number" class="form-control" name="PesoReal" id="PesoReal" value="" placeholder="Cant." />
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <div class="panel-heading text-center"> Tactico/F</div>
+                                        <input type="number" class="form-control" name="Tactico" id="Tactico" value="" placeholder="Cant." />
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <div class="panel-heading text-center">Merma</div>
+                                        <input type="number" class="form-control" name="Merma" id="Merma" value="" placeholder="Cant." />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <div class="row">
+                    <div class="panel panel-danger">
+                        <div class="panel-heading">Detalle de Compra</div>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered" id="tblCompra">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Nombre</th>
+                                            <th>F/V</th>
+                                            <th>Cantidad</th>
+                                            <th>Precio</th>
+                                            <th>Sub Total</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="fila"></tbody>
+                                    <tfoot>
+                                        <tr class="total">
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td><font color="red">Total</font></td>
+                                            <td>
+                                                <input type="hidden" class="form-control" name="Total1" id="Total1" value="0" placeholder="Total" />
+                                                <input type="text" class="form-control" name="Total2" size="1" id="Total2" value="" placeholder="Total" />
+                                            </td>
+                                            <td></td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <div class="row">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-5">
+                        <input type="button" name="btnCancelar" id="btnCancelar" class="btn btn-danger btn-block" value="Eliminar" />
+                    </div>
+                    <div class="col-sm-5">
+                        <input type="button" name="btnEnviarFactura" id="btnEnviarFactura" class="btn btn-success btn-block" value="Guardar" />
+                    </div>
+                    <div class="col-sm-1"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section CargarProducto{
+    <script type="text/javascript">
+            $(document).ready(function () {
+                //cargar code de producto
+                var IdProducto = $("select[name=IdProducto]").val();
+                $("#Code").val(IdProducto);
+                var Producto = $("select[name=IdProducto] option:selected").text();
+                //llenado input
+                $("#Producto").val(Producto);
+                $("select[name=IdProducto]").change(function () {
+                    var IdProducto = $("select[name=IdProducto]").val();
+                    $("#Code").val(IdProducto);
+                    var Producto = $("select[name=IdProducto] option:selected").text();
+                    $("#Producto").val(Producto);
+                    //alert("Data: " + Producto);
+                });
+                //guardar detalle compra
+                $("#btnEnviar").click(function () {
+                    var Code = $("#Code").val();
+                    var Producto = $("#Producto").val();
+                    var FechaVenc = $("#FechaVencimiento").val();
+                    var Cantidad = $("#Cantidad").val();
+                    var PrecioCompra = $("#PrecioCompra").val();
+                    //alert("Proveedor: " + IdProveedor + " Fecha Compra: " + FechaCompra + " Factura: " + Factura);
+                    if (Code == "" || Producto == "" || Cantidad == "" || PrecioCompra == "" || FechaVenc=="") {
+                        alert("Faltan algunos datos.");
+                    }
+                    else {
+                        var total1 = $("#Total1").val();
+                        var total2 = (PrecioCompra * Cantidad);
+                        var contador = $("#fila").html();
+                        var HTML = "<tr><td class='Code'>" + Code + "</td><td>" + Producto + "</td><td>" + FechaVenc + "</td><td>" + Cantidad + "</td><td>" + PrecioCompra + "</td><td>" + (PrecioCompra * Cantidad) + "</td><td class='no'><button type='button' name='btnDelete' id='btnDelete' class='btn btn-danger btn-xs'><span class='glyphicon glyphicon-trash'></span></button></td></tr> ";
+                        $("#fila").html(contador+HTML);
+                        $("#Producto").val("");
+                        $("#FechaVencimiento").val("");
+                        $("#Cantidad").val("");
+                        $("#PrecioCompra").val("");
+                        var total = parseFloat(total1) + parseFloat(total2);
+                        $("#Total1").val(total);
+                        $("#Total2").val(total);
+                        //alert("Code: " + Code + " Producto: " + Producto + " Fecha/V: " + FechaVenc + " Cantidad: " + Cantidad + " Precio: " + PrecioCompra);
+                    }
+                });
+                //Elimnar filas
+                $('body').on('click', 'button#btnDelete', function () {
+                    //manejo de totales
+                    var col = $(this).parents('tr');
+                    var subTotalEliminar = col.find("td:eq(5)").text();
+                    var totalAC = $("#Total1").val();
+                    var total1 = parseFloat(totalAC) - parseFloat(subTotalEliminar);
+                    $("#Total2").val(total1);
+                    $("#Total1").val(total1);
+                    //removiendo fila
+                    $(this).parents('tr').remove();
+                });
+                //enviar factura
+                $("#btnEnviarFactura").click(function () {
+                    //alert("Hola mundo");
+                    var IdProveedor = $("select[name=IdProveedor]").val();
+                    var Proveedor = $("select[name=IdProveedor] option:selected").text();
+
+                    var Factura = $("#NumeroFactura").val();
+                    var FechaCompra = $("#FechaCompra").val();
+                    if (IdProveedor == "" || Factura == "" || FechaCompra == "" || Proveedor=="") {
+                        alert("Faltan algunos datos de la factura.");
+                    }
+                    else {
+                        $.ajaxSetup({ async: false });
+                        //creando la Compra
+                        var urlCompra = '@Url.Action("CompraAjaxMethod", "Compras")';
+                        var dataCompra = { IdProveedor: IdProveedor, Factura: Factura, FechaCompra: FechaCompra };
+                            $.post(urlCompra, dataCompra)
+                                .done(function (data) {
+                                    //alert("Funcino: " + data);
+                                })
+                                .fail(function (data) {
+                                    console.log("Error: " + data.responseText);
+                                }).
+                                always(function () {
+                            });
+                        //creando detalleCompra
+                        $(".Code").parent("tr").find("td:eq(0)").each(function () {
+                            var columna = $(this).parents('tr');
+                            var CodigoP = columna.find("td:eq(0)").text();
+                            var NombreP = columna.find("td:eq(1)").text();
+                            var FechaP = columna.find("td:eq(2)").text();
+                            var CantidadP = columna.find("td:eq(3)").text();
+                            var PrecioP = columna.find("td:eq(4)").text();
+                            var TotalP = columna.find("td:eq(5)").text();
+                            //alert(CodigoP + NombreP + FechaP + CantidadP + PrecioP + TotalP);
+                            var urlDetalle = '@Url.Action("DetalleCompraAjaxMethod", "Compras")';
+                            var dataDetalle = { CodigoP: CodigoP, NombreP: NombreP, FechaP: FechaP, CantidadP: CantidadP, PrecioP: PrecioP, TotalP: TotalP};
+                            //var data = { IdProveedor: IdProveedor, Factura: Factura };
+                            $.post(urlDetalle, dataDetalle)
+                                .done(function (data) {
+                                    //alert("Funcino: " + data);
+                                })
+                                .fail(function (data) {
+                                    console.log("Error: " + data.responseText);
+                                }).
+                                always(function () {
+                            });
+
+                        });
+                        var url = '@Url.Action("Compras", "Compras")';
+                        $(location).attr('href', url);
+                    }
+                });
+                //Boton eliminar
+                $("#btnCancelar").click(function () {
+                    var url = '@Url.Action("Compras")';
+                    $(location).attr('href', url);
+                });
+            });
+    </script>
+}

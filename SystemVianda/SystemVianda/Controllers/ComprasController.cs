@@ -32,7 +32,7 @@ namespace SystemVianda.Controllers
 
                 var ModeloCompra = new TblCompras()
                 {
-                    UserName = User.Identity.GetUserName(),
+                    IdUsuario = (int)Session["IdUsuario"],
                     CodigoFactura = Factura,
                     FecCompra = Convert.ToDateTime(mes + "/" + dia + "/" + año + " " + DateTime.Now.Hour + ":" + DateTime.Now.Minute),
                 
@@ -126,10 +126,6 @@ namespace SystemVianda.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            //ViewBag.factura = (from c in db.Compras
-            //                  join p in db.Proveedores on c.IdProveedor equals p.IdProveedor
-            //                  where c.IdCompra == id
-            //                  select c).FirstOrDefault();
             //Campos de Compra
             ViewBag.factura = (from c in db.Compras
                                where c.IdCompra == id
@@ -143,10 +139,7 @@ namespace SystemVianda.Controllers
                            where d.IdCompra == id
                            select d).ToList();
 
-            ////var Totall = from d in db.DetalleCompras
-            ////             where d.IdCompra == id
-            ////             select d.Total;
-
+          
 
             //Suma Total Detalle
             if (Detalle == null)
