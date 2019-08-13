@@ -1,0 +1,74 @@
+﻿@model SystemVianda.Models.TblCompras
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TblCompras</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Proveedores.Empresa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Proveedores.Empresa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Usuarios.Usuario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Usuarios.Usuario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CodigoFactura)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CodigoFactura)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FecCompra)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FecCompra)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaRegistro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaRegistro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Estado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdCompra }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

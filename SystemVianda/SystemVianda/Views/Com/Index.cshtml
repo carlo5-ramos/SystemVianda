@@ -1,0 +1,69 @@
+﻿@model IEnumerable<SystemVianda.Models.TblCompras>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Proveedores.Empresa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Usuarios.Usuario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CodigoFactura)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FecCompra)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaRegistro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Estado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Proveedores.Empresa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Usuarios.Usuario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CodigoFactura)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FecCompra)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaRegistro)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Estado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descripcion)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdCompra }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdCompra }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdCompra })
+        </td>
+    </tr>
+}
+
+</table>

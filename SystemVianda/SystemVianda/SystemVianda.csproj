@@ -181,20 +181,24 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AsignacionRutasController.cs" />
+    <Compile Include="Controllers\CategoriasController.cs" />
+    <Compile Include="Controllers\ComController.cs" />
     <Compile Include="Controllers\ComprasController.cs" />
     <Compile Include="Controllers\DetallesRutasController.cs" />
     <Compile Include="Controllers\EmpleadosController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\ProductosController.cs" />
     <Compile Include="Controllers\ProveedoresController.cs" />
     <Compile Include="Controllers\RolesController.cs" />
     <Compile Include="Controllers\RutasController.cs" />
+    <Compile Include="Controllers\UnidadDeMedidasController.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201908121744120_NewMigrations.cs" />
-    <Compile Include="Migrations\201908121744120_NewMigrations.Designer.cs">
-      <DependentUpon>201908121744120_NewMigrations.cs</DependentUpon>
+    <Compile Include="Migrations\201908131604444_Inicio.cs" />
+    <Compile Include="Migrations\201908131604444_Inicio.Designer.cs">
+      <DependentUpon>201908131604444_Inicio.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ComprasAndDetalles.cs" />
@@ -210,6 +214,7 @@
     <Compile Include="Models\TblProveedores.cs" />
     <Compile Include="Models\TblRoles.cs" />
     <Compile Include="Models\TblRutas.cs" />
+    <Compile Include="Models\TblUnidadDeMedida.cs" />
     <Compile Include="Models\TblUsuarios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -218,6 +223,27 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-1.9.1.min.map" />
     <Content Include="Views\Compras\Index.cshtml" />
+    <Content Include="Views\Categorias\Create.cshtml" />
+    <Content Include="Views\Categorias\Delete.cshtml" />
+    <Content Include="Views\Categorias\Details.cshtml" />
+    <Content Include="Views\Categorias\Edit.cshtml" />
+    <Content Include="Views\Categorias\Index.cshtml" />
+    <Content Include="Views\Productos\Create.cshtml" />
+    <Content Include="Views\Productos\Delete.cshtml" />
+    <Content Include="Views\Productos\Details.cshtml" />
+    <Content Include="Views\Productos\Edit.cshtml" />
+    <Content Include="Views\Productos\Index.cshtml" />
+    <Content Include="Views\UnidadDeMedidas\Create.cshtml" />
+    <Content Include="Views\UnidadDeMedidas\Delete.cshtml" />
+    <Content Include="Views\UnidadDeMedidas\Details.cshtml" />
+    <Content Include="Views\UnidadDeMedidas\Edit.cshtml" />
+    <Content Include="Views\UnidadDeMedidas\Index.cshtml" />
+    <Content Include="Views\Com\Create.cshtml" />
+    <Content Include="Views\Com\Delete.cshtml" />
+    <Content Include="Views\Com\Details.cshtml" />
+    <Content Include="Views\Com\Edit.cshtml" />
+    <Content Include="Views\Com\Index.cshtml" />
+    <Content Include="Views\Compras\Compras.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -229,8 +255,8 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201908121744120_NewMigrations.resx">
-      <DependentUpon>201908121744120_NewMigrations.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201908131604444_Inicio.resx">
+      <DependentUpon>201908131604444_Inicio.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

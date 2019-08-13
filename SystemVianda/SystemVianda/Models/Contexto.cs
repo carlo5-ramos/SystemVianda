@@ -24,5 +24,6 @@ namespace SystemVianda.Models
         public DbSet<TblCompras> Compras { get; set; }
         public DbSet<TblDetallesCompras> DetallesCompras { get; set; }
         public DbSet<TblProductos> Productos { get; set; }
+        public DbSet<TblUnidadDeMedida> UnidadDeMedidas { get; set; }
     }
 }

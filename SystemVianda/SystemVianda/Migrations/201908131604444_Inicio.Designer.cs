@@ -7,13 +7,13 @@ namespace SystemVianda.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.3.0-preview7-19363-02")]
-    public sealed partial class NewMigrations : IMigrationMetadata
+    public sealed partial class Inicio : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(NewMigrations));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Inicio));
         
         string IMigrationMetadata.Id
         {
-            get { return "201908121744120_NewMigrations"; }
+            get { return "201908131604444_Inicio"; }
         }
         
         string IMigrationMetadata.Source

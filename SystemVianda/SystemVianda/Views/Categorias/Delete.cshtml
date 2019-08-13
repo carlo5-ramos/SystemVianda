@@ -1,0 +1,54 @@
+﻿@model SystemVianda.Models.TblCategorias
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<div class="container-fluid ">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="row">
+                <div class="col-lg-push-12">
+                    <div class="panel panel-danger">
+                        <div class="panel-heading"><h4>Eliminar Categoria</h4></div>
+                        <div class="panel-body">
+                            <h3>Esta seguro que desea eliminar este registro?</h3>
+
+                            <div>
+
+                                <dl class="dl-horizontal">
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.Categoria)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.Categoria)
+                                    </dd>
+
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.Descripcion)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.Descripcion)
+                                    </dd>
+
+                                </dl>
+
+                                @using (Html.BeginForm())
+                                {
+                                    @Html.AntiForgeryToken()
+                                    <div class="form-actions no-color">
+                                        <input type="submit" value="Eliminar" class="btn btn-danger " /> |
+                                        @Html.ActionLink("Atras", "Index", null, new { @class = "btn btn-default " })
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,80 @@
+﻿@model SystemVianda.Models.TblCompras
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>TblCompras</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Proveedores.Empresa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Proveedores.Empresa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Usuarios.Usuario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Usuarios.Usuario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CodigoFactura)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CodigoFactura)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FecCompra)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FecCompra)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaRegistro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaRegistro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Estado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

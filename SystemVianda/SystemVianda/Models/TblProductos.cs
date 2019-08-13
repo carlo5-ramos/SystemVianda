@@ -24,8 +24,11 @@ namespace SystemVianda.Models
         public bool Estado { get; set; }
         public Nullable<DateTime> FechaRegistro { get; set; }
         public int IdCategoria { get; set; }
+        public int IdUnidadMedida { get; set; }
+
         //Relaciones
         public virtual TblCategorias Categorias { get; set; }
+        public virtual TblUnidadDeMedida UnidadDeMedida { get; set; }
         public ICollection<TblDetallesCompras> DetallesCompras { get; set; }
 
     }

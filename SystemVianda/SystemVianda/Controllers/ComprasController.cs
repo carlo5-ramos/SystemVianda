@@ -17,6 +17,9 @@ namespace SystemVianda.Controllers
         {
             ViewBag.IdProveedor = new SelectList(db.Proveedores, "IdProveedor", "Empresa");
             ViewBag.IdProducto = new SelectList(db.Productos, "IdProducto", "Nombre");
+            ViewBag.IdUnidadMedida = new SelectList(db.UnidadDeMedidas, "IdUnidadMedida", "Nombre");
+
+
             return View();
         }
 
@@ -26,15 +29,16 @@ namespace SystemVianda.Controllers
         {
             try
             {
-                int dia = FechaCompra.Day;
-                int mes = FechaCompra.Month;
-                int año = FechaCompra.Year;
+                //int dia = FechaCompra.Day;
+                //int mes = FechaCompra.Month;
+                //int año = FechaCompra.Year;
 
                 var ModeloCompra = new TblCompras()
                 {
                     IdUsuario = (int)Session["IdUsuario"],
                     CodigoFactura = Factura,
-                    FecCompra = Convert.ToDateTime(mes + "/" + dia + "/" + año + " " + DateTime.Now.Hour + ":" + DateTime.Now.Minute),
+                    //FecCompra = Convert.ToDateTime(mes + "/" + dia + "/" + año + " " + DateTime.Now.Hour + ":" + DateTime.Now.Minute),
+                    FecCompra = Convert.ToDateTime(FechaCompra),
                 
                     FechaRegistro = DateTime.Now.Date,
                     IdProveedor = IdProveedor,

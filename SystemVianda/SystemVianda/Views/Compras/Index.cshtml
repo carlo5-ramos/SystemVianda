@@ -45,9 +45,9 @@
                         <div class="panel-body">
                             <div class="col-sm-12">
                                 <br />
+                               
                                 <div class="form-group">
-
-                                    <input type="date" name="FechaCompra" id="FechaCompra" class="form-control" value="@DateTime.Now.Year-@DateTime.Now.Month-@DateTime.Now.Day @DateTime.Now.Hour:@DateTime.Now.Minute" />
+                                    <input type="date" class="form-control" name="FechaCompra" id="FechaCompra" value="" />
                                 </div>
                             </div>
                         </div>
@@ -71,8 +71,8 @@
                                 <div class="col-sm-5">
                                     <div class="panel-heading text-center">Producto</div>
                                     <div class="form-group">
-                                        @Html.DropDownList("IdProducto", null, htmlAttributes: new { @class = "form-control btn-warning input-block" })
-                                            @Html.ValidationMessageFor(model => model.IdProducto, "", new { @class = "text-danger" })
+                                        @Html.DropDownList("IdProducto", null, htmlAttributes: new { @class = "form-control btn-info input-block" })
+                                        @Html.ValidationMessageFor(model => model.IdProducto, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
                                 <div class="col-sm-4">
@@ -98,6 +98,8 @@
                                     </div>
                                 </div>
 
+
+
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <div class="panel-heading text-center">Cantidad</div>
@@ -106,22 +108,26 @@
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <div class="panel-heading text-center">P/C</div>
-                                        <input type="number" class="form-control" name="PrecioCompra" id="PrecioCompra" value="" placeholder="P/Comp." />
+                                        <div class="panel-heading text-center">Unidad De Medida</div>
+                                        @Html.DropDownList("IdUnidadMedida", null, htmlAttributes: new { @class = "form-control btn-success" })
+                                        @Html.ValidationMessageFor(model => model.Productos.IdUnidadMedida, "", new { @class = "text-danger" })
+
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <div class="panel-heading text-center">&ensp;</div>
-                                        <button type="submit" class="btn btn-primary btn-block" name="btnEnviar" id="btnEnviar"><i class="glyphicon glyphicon-shopping-cart"></i> Agregar</button>
+                                        <div class="panel-heading text-center">P/C</div>
+                                        <input type="number" class="form-control" name="PrecioCompra" id="PrecioCompra" value="" placeholder="P/Comp." />
                                     </div>
                                 </div>
+
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <div class="panel-heading text-center">Peso Factura</div>
                                         <input type="number" class="form-control" name="PesoFactura" id="Peso Factura" value="" placeholder="Peso." />
                                     </div>
                                 </div>
+
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <div class="panel-heading text-center">Peso Real</div>
@@ -140,8 +146,33 @@
                                         <input type="number" class="form-control" name="Merma" id="Merma" value="" placeholder="Cant." />
                                     </div>
                                 </div>
+
+
+
+
+
+
                             </div>
-                        </div>
+                            <div class="col-sm-12">
+                                
+                                <div class="col-md-9">
+                                    Descripcion
+                                    <div class="form-group">
+
+                                        <div class="panel-heading text-center"></div>
+                                        <textarea class="form-control col-md-9" rows="2" placeholder="Des."></textarea>
+
+                                    </div>
+
+                                </div>
+                                <div class="col-md-3" align="right">
+                                    <div class="form-group">
+                                        <div class="panel-heading text-right">&ensp;</div>
+                                        <button type="submit" class="btn btn-primary btn-block" name="btnEnviar" id="btnEnviar"><i class="glyphicon glyphicon-shopping-cart"></i> Agregar</button>
+                                    </div>
+                                </div>
+
+                            </div>
 
                     </div>
                 </div>
@@ -157,7 +188,7 @@
                                         <tr>
                                             <th>#</th>
                                             <th>Nombre</th>
-                                            <th>F/V</th>
+                                            <th>F/R</th>
                                             <th>Cantidad</th>
                                             <th>Precio</th>
                                             <th>Sub Total</th>
@@ -200,6 +231,7 @@
         </div>
     </div>
 </div>
+ </div>
 @section CargarProducto{
     <script type="text/javascript">
             $(document).ready(function () {
@@ -220,21 +252,35 @@
                 $("#btnEnviar").click(function () {
                     var Code = $("#Code").val();
                     var Producto = $("#Producto").val();
-                    var FechaVenc = $("#FechaVencimiento").val();
+                    var PesoFactura = $("#PesoFactura").val();
+                    var PesoReal = $("#PesoReal").val();
+                    var TacticoFactura = $("#TacticoFactura").val();
+                    var Merma = $("#Merma").val();
+                    var Unidad = $("#Unidad").val();
+                    var FechaRegistro = $("#FechaRegistro").val();
+
+
+
                     var Cantidad = $("#Cantidad").val();
                     var PrecioCompra = $("#PrecioCompra").val();
                     //alert("Proveedor: " + IdProveedor + " Fecha Compra: " + FechaCompra + " Factura: " + Factura);
-                    if (Code == "" || Producto == "" || Cantidad == "" || PrecioCompra == "" || FechaVenc=="") {
+                    if (Code == "" || Producto == "" || Cantidad == "" || PrecioCompra == "" || FechaRegistro == "" || PesoReal == "" || PesoFactura == "" || TacticoFactura == "" || Merma == "" || Unidad == "") {
                         alert("Faltan algunos datos.");
                     }
                     else {
                         var total1 = $("#Total1").val();
                         var total2 = (PrecioCompra * Cantidad);
                         var contador = $("#fila").html();
-                        var HTML = "<tr><td class='Code'>" + Code + "</td><td>" + Producto + "</td><td>" + FechaVenc + "</td><td>" + Cantidad + "</td><td>" + PrecioCompra + "</td><td>" + (PrecioCompra * Cantidad) + "</td><td class='no'><button type='button' name='btnDelete' id='btnDelete' class='btn btn-danger btn-xs'><span class='glyphicon glyphicon-trash'></span></button></td></tr> ";
+                        var HTML = "<tr><td class='Code'>" + Code + "</td><td>" + Producto + "</td><td>" + FechaRegistro + "</td><td>" + Cantidad + "</td><td>" + PrecioCompra + "</td><td>" + (PrecioCompra * Cantidad) + "</td><td class='no'><button type='button' name='btnDelete' id='btnDelete' class='btn btn-danger btn-xs'><span class='glyphicon glyphicon-trash'></span></button></td></tr> ";
                         $("#fila").html(contador+HTML);
                         $("#Producto").val("");
-                        $("#FechaVencimiento").val("");
+                        $("#PesoReal").val("");
+                        $("#PesoFactura").val("");
+                        $("#TacticoFactura").val("");
+                        $("#Merma").val("");
+                        $("#Unidad").val("");
+                        $("#FechaRegistro").val("");
+
                         $("#Cantidad").val("");
                         $("#PrecioCompra").val("");
                         var total = parseFloat(total1) + parseFloat(total2);
@@ -257,20 +303,20 @@
                 });
                 //enviar factura
                 $("#btnEnviarFactura").click(function () {
-                    //alert("Hola mundo");
+                   // alert("Hola mundo");
                     var IdProveedor = $("select[name=IdProveedor]").val();
                     var Proveedor = $("select[name=IdProveedor] option:selected").text();
 
                     var Factura = $("#NumeroFactura").val();
-                    var FechaCompra = $("#FechaCompra").val();
-                    if (IdProveedor == "" || Factura == "" || FechaCompra == "" || Proveedor=="") {
+                    var FechaCompra = $("#FechaRegistro").val();
+                    if (IdProveedor == "" || Factura == "") {
                         alert("Faltan algunos datos de la factura.");
                     }
                     else {
                         $.ajaxSetup({ async: false });
                         //creando la Compra
                         var urlCompra = '@Url.Action("CompraAjaxMethod", "Compras")';
-                        var dataCompra = { IdProveedor: IdProveedor, Factura: Factura, FechaCompra: FechaCompra };
+                        var dataCompra = { IdProveedor: IdProveedor, Factura: Factura, FechaCompra: FechaCompra, Proveedor: Proveedor};
                             $.post(urlCompra, dataCompra)
                                 .done(function (data) {
                                     //alert("Funcino: " + data);
@@ -289,6 +335,7 @@
                             var CantidadP = columna.find("td:eq(3)").text();
                             var PrecioP = columna.find("td:eq(4)").text();
                             var TotalP = columna.find("td:eq(5)").text();
+
                             //alert(CodigoP + NombreP + FechaP + CantidadP + PrecioP + TotalP);
                             var urlDetalle = '@Url.Action("DetalleCompraAjaxMethod", "Compras")';
                             var dataDetalle = { CodigoP: CodigoP, NombreP: NombreP, FechaP: FechaP, CantidadP: CantidadP, PrecioP: PrecioP, TotalP: TotalP};
