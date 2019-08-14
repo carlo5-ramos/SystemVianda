@@ -3,67 +3,137 @@
 @{
     ViewBag.Title = "Compras";
 }
-
-<h2>Compras</h2>
-
+<link href="~/Scripts/datatables.min.css" rel="stylesheet" />
+<script src="~/Scripts/datatables.min.js"></script>
+<h4>Compras Registradas</h4>
+<hr />
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Nueva Compra", "Index", null, htmlAttributes: new { @class = "btn btn-primary" })
+
+    @Html.ActionLink("Proveedores", "Create", "Proveedores", null, htmlAttributes: new { @class = "btn btn-primary" })
+
+    @Html.ActionLink("Nuevo Producto", "Create", "Productos", null, htmlAttributes: new { @class = "btn btn-primary" })
+    @Html.ActionLink("Nueva Categoria", "Create", "Categorias", null, htmlAttributes: new { @class = "btn btn-primary" })
+    
+
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Proveedores.Empresa)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Usuarios.Usuario)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CodigoFactura)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FecCompra)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FechaRegistro)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Estado)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Descripcion)
-        </th>
-        <th></th>
-    </tr>
+<div class="col-sm-12">
+    <div class="row">
+        <div class="panel panel-primary">
+            <div class="panel-heading"></div>
+            <div class="panel-body">
+                <br />
+                <form action="Compras" method="post" id="Busqueda" name="Busqueda">
+                    <div class="col-sm-4">
+                        <center>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Proveedores.Empresa)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Usuarios.Usuario)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CodigoFactura)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FecCompra)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FechaRegistro)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Estado)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Descripcion)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.IdCompra }) |
-            @Html.ActionLink("Details", "Details", new { id=item.IdCompra }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.IdCompra })
-        </td>
-    </tr>
-}
+                            <label style="color:#379DD8;">Fecha Inicial</label>
+                        </center>
+                        <input type="date" class="form-control" name="FI" id="FI" />
+                    </div>
+                    <div class="col-sm-4">
+                        <center>
+                            <label style="color:#51C138;">Fecha Final</label>
+                        </center>
+                        <input type="date" class="form-control" name="FF" id="FF" />
+                    </div>
+                    <div class="col-sm-4">
+                        <label>&ensp;</label>
+                        <button type="submit" value="" class="btn btn-success form-control">Buscar</button>
+                    </div>
+                    <br />
+                </form>
 
+
+            </div>
+            <br />
+
+        </div>
+    </div>
+</div>
+<table class="table" id="dtTable">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Proveedores.Empresa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Usuarios.Usuario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CodigoFactura)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FecCompra)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaRegistro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Estado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Proveedores.Empresa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Usuarios.Usuario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CodigoFactura)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FecCompra)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaRegistro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Estado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descripcion)
+            </td>
+            <td>
+              @Html.ActionLink(" ", "Details", new { id = item.IdCompra }, new { @class = "btn btn-success glyphicon glyphicon-list-alt", }) </td>
+            <td>
+                
+              @Html.ActionLink(" ", "EliminarCompra", new { id = item.IdCompra }, new { @class = "btn btn-danger glyphicon glyphicon-trash", })                
+            </td>
+        </tr>
+        }
+
+    </tbody>
 </table>
+<script src="~/Scripts/TableIdioma.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+
+            $('#Busqueda').validate({
+                rules: {
+                    FI: 'required',
+                    FF: 'required'
+                },
+                messages: {
+                    FI: 'Debe Ingresar Fecha',
+                    FF: 'Debe Ingresar Fecha'
+                }
+
+
+
+            });
+
+        });
+
+    </script>

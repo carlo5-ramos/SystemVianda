@@ -244,6 +244,9 @@
     <Content Include="Views\Com\Edit.cshtml" />
     <Content Include="Views\Com\Index.cshtml" />
     <Content Include="Views\Compras\Compras.cshtml" />
+    <Content Include="Views\Compras\Details.cshtml" />
+    <Content Include="Views\Compras\Delete.cshtml" />
+    <Content Include="Views\Compras\EliminarCompra.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
