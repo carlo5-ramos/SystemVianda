@@ -23,23 +23,40 @@ namespace SystemVianda.Controllers
             return View();
         }
 
-        //creando la compra
         [HttpPost]
-        public JsonResult CompraAjaxMethod(int IdProveedor, string Factura, DateTime FechaCompra)
+        public ActionResult Test(string Factura, int IdProveedor, DateTime FechaCompra, string Descripcion)
         {
             try
             {
-                //int dia = FechaCompra.Day;
-                //int mes = FechaCompra.Month;
-                //int año = FechaCompra.Year;
-
+    
+                var ModeloCompra = new TblCompras()
+                {
+                    IdUsuario = (int)Session["IdUsuario"],                
+                    FechaRegistro = DateTime.Now.Date,
+              
+                };
+                db.Compras.Add(ModeloCompra);
+                db.SaveChanges();
+                return Json(true);
+            }
+            catch
+            {
+                return Json(false);
+            }
+        }
+        //creando la compra
+        [HttpPost]
+        public JsonResult CompraAjaxMethod(string Factura, int IdProveedor, DateTime FechaCompra, string Descripcion)
+        {
+            try
+            {
+            
                 var ModeloCompra = new TblCompras()
                 {
                     IdUsuario = (int)Session["IdUsuario"],
                     CodigoFactura = Factura,
-                    //FecCompra = Convert.ToDateTime(mes + "/" + dia + "/" + año + " " + DateTime.Now.Hour + ":" + DateTime.Now.Minute),
                     FecCompra = Convert.ToDateTime(FechaCompra),
-                
+
                     FechaRegistro = DateTime.Now.Date,
                     IdProveedor = IdProveedor,
                 };

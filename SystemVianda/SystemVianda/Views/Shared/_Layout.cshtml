@@ -3,12 +3,13 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    <script src="~/Scripts/jquery-3.3.1.js"></script>
+    <title>@ViewBag.Title - Sistema Vianda</title>
+
+    @*<script src="~/Scripts/jquery-3.3.1.js"></script>*@
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
-    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    @*<script src="~/Scripts/jquery-1.10.2.min.js"></script>*@
 
 </head>
 <body background="~/IMG/347118-admin.jpg">
@@ -244,7 +245,7 @@
 
 
                 </div>
-         
+
 
             </div>
             <div class="col-sm-9 col-md-9">
@@ -269,11 +270,15 @@
             </footer>
         </div>*@
 
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
     @RenderSection("scripts", required: false)
     @RenderSection("CargarProducto", required: false)
+    @RenderSection("CargarProductoServicio", required: false)
 
-    <script src="~/Scripts/jquery.validate.js"></script>
+
+    @*<script src="~/Scripts/jquery.validate.js"></script>*@
     <script src="~/Scripts/bootstrap.min.js"></script>
-    @RenderSection("FrmValidar", required: false);
+    @RenderSection("FrmValidar", required: false)
 </body>
 </html>

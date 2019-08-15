@@ -14,7 +14,7 @@
 
     @Html.ActionLink("Nuevo Producto", "Create", "Productos", null, htmlAttributes: new { @class = "btn btn-primary" })
     @Html.ActionLink("Nueva Categoria", "Create", "Categorias", null, htmlAttributes: new { @class = "btn btn-primary" })
-    
+
 
 </p>
 <div class="col-sm-12">
@@ -81,40 +81,42 @@
     <tbody>
         @foreach (var item in Model)
         {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Proveedores.Empresa)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Usuarios.Usuario)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CodigoFactura)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FecCompra)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FechaRegistro)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Estado)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Descripcion)
-            </td>
-            <td>
-              @Html.ActionLink(" ", "Details", new { id = item.IdCompra }, new { @class = "btn btn-success glyphicon glyphicon-list-alt", }) </td>
-            <td>
-                
-              @Html.ActionLink(" ", "EliminarCompra", new { id = item.IdCompra }, new { @class = "btn btn-danger glyphicon glyphicon-trash", })                
-            </td>
-        </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Proveedores.Empresa)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Usuarios.Usuario)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CodigoFactura)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FecCompra)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FechaRegistro)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Estado)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descripcion)
+                </td>
+                <td>
+                    @Html.ActionLink(" ", "Details", new { id = item.IdCompra }, new { @class = "btn btn-success glyphicon glyphicon-list-alt", })
+                </td>
+                <td>
+
+                    @Html.ActionLink(" ", "EliminarCompra", new { id = item.IdCompra }, new { @class = "btn btn-danger glyphicon glyphicon-trash", })
+                </td>
+            </tr>
         }
 
     </tbody>
 </table>
 <script src="~/Scripts/TableIdioma.js"></script>
+
 
     <script type="text/javascript">
         $(document).ready(function () {

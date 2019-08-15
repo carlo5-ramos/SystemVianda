@@ -51,11 +51,21 @@ namespace SystemVianda.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "IdProducto,Nombre,BarCode,Existencia,Precio,Descripcion,Estado,FechaRegistro,IdCategoria,IdUnidadMedida")] TblProductos tblProductos)
         {
-            if (ModelState.IsValid)
+            if (tblProductos.Precio <= 0)
             {
-                db.Productos.Add(tblProductos);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                ViewBag.Error = "Campo Precio no puede ser 0";
+            }
+            else
+            {
+
+                tblProductos.Estado = true;
+                tblProductos.FechaRegistro = DateTime.Now.Date;
+                if (ModelState.IsValid)
+                {
+                    db.Productos.Add(tblProductos);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
             }
 
             ViewBag.IdCategoria = new SelectList(db.Categorias, "IdCategoria", "Categoria", tblProductos.IdCategoria);
@@ -88,11 +98,29 @@ namespace SystemVianda.Controllers
         public ActionResult Edit([Bind(Include = "IdProducto,Nombre,BarCode,Existencia,Precio,Descripcion,Estado,FechaRegistro,IdCategoria,IdUnidadMedida")] TblProductos tblProductos)
         {
             if (ModelState.IsValid)
-            {
-                db.Entry(tblProductos).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+                if (tblProductos.Precio <= 0)
+                {
+                    ViewBag.Error = "Campo Precio no puede ser 0";
+                }
+                else
+                {
+
+                    var query = (from p in db.Productos
+                                 where p.IdProducto == tblProductos.IdProducto
+                                 select p).First();
+                    if (query != null)
+                    {
+                        db.Entry(query).State = EntityState.Detached;
+                        tblProductos.Estado = query.Estado;
+                        tblProductos.FechaRegistro = query.FechaRegistro;
+                    }
+                    if (ModelState.IsValid)
+                    {
+                        db.Entry(tblProductos).State = EntityState.Modified;
+                        db.SaveChanges();
+                    }
+                    return RedirectToAction("Index");
+                }
             ViewBag.IdCategoria = new SelectList(db.Categorias, "IdCategoria", "Categoria", tblProductos.IdCategoria);
             ViewBag.IdUnidadMedida = new SelectList(db.UnidadDeMedidas, "IdUnidadMedida", "Nombre", tblProductos.IdUnidadMedida);
             return View(tblProductos);
