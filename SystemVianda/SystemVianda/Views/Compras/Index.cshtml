@@ -284,7 +284,7 @@
                                             <div class="form-group">
 
                                                 <div class="panel-heading text-center"></div>
-                                                <textarea name="textarea" rows="2" cols="50">Write something here</textarea>
+                                                <textarea name="Des" rows="2" cols="50" id="Des" placeholder="Des."></textarea>
 
                                             </div>
 
@@ -314,8 +314,8 @@
             </div>
         </div>
     </div>
-   </div>
- </div>
+</div>
+
 
     @section CargarProducto{
         <script type="text/javascript">
@@ -425,25 +425,21 @@
 
                     var Factura = $("#NumeroFactura").val();
                     var FechaCompra = $("#FechaCompra").val();
+                    var Des = $("#Des").val();
+
                     if (IdProveedor == "" || Factura == "" || FechaCompra == "" || Empresa == "") {
                         alert("Faltan algunos datos de la factura.");
                     }
                     else {
-                        @*$.ajax({
-                            url: "@Url.Action("CompraAjaxMethod", "Compras")",
-                            type: "POST",
-                            contentType: "applicaction/json",
-                            data: JSON.stringify({ Factura: Factura, IdProveedor: IdProveedor, FechaCompra: FechaCompra, Descripcion: Descripcion})
-                        });*@
-
+              
 
                         $.ajaxSetup({ async: false });
                         //creando la Compra
                         //alert(IdProveedor + " " + Empresa + " " + Factura + " " + FechaCompra);  ****FUNCIONA BIEN LA CAPTURA DE DATOS
                         var urlCompra = '@Url.Action("CompraAjaxMethod", "Compras")';
-                        var dataCompra = { Factura: Factura, IdProveedor: IdProveedor, FechaCompra: FechaCompra};
+                        var dataCompra = { Factura: Factura, IdProveedor: IdProveedor, FechaCompra: FechaCompra, Des: Des };
                         alert("Funcino: " + Object.values(dataCompra));
-                        alert(Descripcion);
+                        //alert(Descripcion);
                         //alert(IdProveedor + " " + Factura + " " + FechaCompra + "  " + Descripcion);
                         alert(urlCompra);
                             $.post(urlCompra, dataCompra)

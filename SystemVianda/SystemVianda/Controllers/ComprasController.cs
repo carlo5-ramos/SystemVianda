@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using System.Web;
-using System.Web.Mvc;
 using SystemVianda.Models;
+using System.Web.Mvc;
 
 namespace SystemVianda.Controllers
 {
@@ -16,54 +14,38 @@ namespace SystemVianda.Controllers
         public ActionResult Index()
         {
             ViewBag.IdProveedor = new SelectList(db.Proveedores, "IdProveedor", "Empresa");
-            ViewBag.IdProducto = new SelectList(db.Productos, "IdProducto", "Nombre");
+            ViewBag.IdProducto = new SelectList(db.Productos.Where(x => x.Estado == true), "IdProducto", "Nombre");
             ViewBag.IdUnidadMedida = new SelectList(db.UnidadDeMedidas, "IdUnidadMedida", "Nombre");
 
 
             return View();
         }
 
-        [HttpPost]
-        public ActionResult Test(string Factura, int IdProveedor, DateTime FechaCompra, string Descripcion)
-        {
-            try
-            {
-    
-                var ModeloCompra = new TblCompras()
-                {
-                    IdUsuario = (int)Session["IdUsuario"],                
-                    FechaRegistro = DateTime.Now.Date,
-              
-                };
-                db.Compras.Add(ModeloCompra);
-                db.SaveChanges();
-                return Json(true);
-            }
-            catch
-            {
-                return Json(false);
-            }
-        }
+
         //creando la compra
         [HttpPost]
-        public JsonResult CompraAjaxMethod(string Factura, int IdProveedor, DateTime FechaCompra, string Descripcion)
+        public JsonResult CompraAjaxMethod(int IdProveedor, string Factura,  DateTime FechaCompra, string Des)
         {
+
             try
             {
-            
+                
+
                 var ModeloCompra = new TblCompras()
                 {
-                    IdUsuario = (int)Session["IdUsuario"],
                     CodigoFactura = Factura,
-                    FecCompra = Convert.ToDateTime(FechaCompra),
-
-                    FechaRegistro = DateTime.Now.Date,
+                    IdUsuario = (int)Session["IdUsuario"],
+                     
                     IdProveedor = IdProveedor,
+                    FecCompra = Convert.ToDateTime(FechaCompra),
+                    FechaRegistro = DateTime.Now.Date,
+                    Estado = true,
+                    Descripcion = Des
                 };
                 db.Compras.Add(ModeloCompra);
                 db.SaveChanges();
                 return Json(true);
-            }
+             }
             catch
             {
                 return Json(false);
@@ -72,29 +54,28 @@ namespace SystemVianda.Controllers
 
         //accion para detalle de compra
         [HttpPost]
-        public JsonResult DetalleCompraAjaxMethod(int CodigoFacturaP,double PesoFacturaP, double PesoRealP, double PrecioCompraP, double SubTotalP, double MermaP, double TacticoFacturaP, double CantidadP)
+        public JsonResult DetalleCompraAjaxMethod(int CodigoP, string NombreP, double CantidadP, double PrecioP, double TacticoP, double MermaP, double TotalP)
         {
             try
             {
                 var IdCompra = (from c in db.Compras
                                 select c.IdCompra).Max();
-               
-              
+
+
                 var DetalleCompra = new TblDetallesCompras()
                 {
-                    
-                    PesoFactura = PesoFacturaP,
-                    Cantidad = PesoRealP,
-                    PrecioCompra = PrecioCompraP,
-                    SubTotal = SubTotalP,
-                    Merma = MermaP,
-                    TacticoFactura = TacticoFacturaP,
-                    IdProducto = CodigoFacturaP,
-                    IdCompra = IdCompra
+                    //PrecioCompra
+                    //PesoFactura
+                    //Cantidad
+                    //SubTotal
+                    //TacticoFactura
+                    //Merma
+                    //Descripcion
+                   
                 };
                 //Aumento en el Stock
                 var SelectProd = (from p in db.Productos
-                                  where p.IdProducto == CodigoFacturaP
+                                  where p.IdProducto == CodigoP
                                   select p).FirstOrDefault();
                 SelectProd.Existencia = SelectProd.Existencia ;
                 db.Entry(SelectProd).State = System.Data.Entity.EntityState.Modified;

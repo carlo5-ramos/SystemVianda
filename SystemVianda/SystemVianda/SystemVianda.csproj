@@ -220,6 +220,14 @@
     <Compile Include="Migrations\201908131604444_Inicio.Designer.cs">
       <DependentUpon>201908131604444_Inicio.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201908162106144_CambiosController.cs" />
+    <Compile Include="Migrations\201908162106144_CambiosController.Designer.cs">
+      <DependentUpon>201908162106144_CambiosController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908162119586_Restauracion.cs" />
+    <Compile Include="Migrations\201908162119586_Restauracion.Designer.cs">
+      <DependentUpon>201908162119586_Restauracion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ComprasAndDetalles.cs" />
     <Compile Include="Models\Contexto.cs" />
@@ -280,6 +288,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201908131604444_Inicio.resx">
       <DependentUpon>201908131604444_Inicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908162106144_CambiosController.resx">
+      <DependentUpon>201908162106144_CambiosController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908162119586_Restauracion.resx">
+      <DependentUpon>201908162119586_Restauracion.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
